@@ -1,5 +1,6 @@
 namespace upword.Api.Dtos;
-public record class WordDto(
+
+public record class CreateWordDto(
     string id,
     string word,
     string definition,

@@ -1,0 +1,15 @@
+GET http://localhost:5125/words
+###
+GET http://localhost:5125/words/5
+###
+POST http://localhost:5125/games
+Content-Type: application/json
+
+{
+  "word": "Serendipity",
+  "definition": "The occurrence and development of events by chance in a happy or beneficial way.",
+  "partOfSpeech": "Noun",
+  "pronunciation": "/ˌserənˈdipədi/",
+  "exampleSentence": "The discovery of penicillin was a case of serendipity."
+}
+###
