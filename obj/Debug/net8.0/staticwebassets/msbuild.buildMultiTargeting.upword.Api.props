@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\upword.Api.props" />
+</Project>

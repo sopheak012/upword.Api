@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "IIpo3Qrw3vA0vT+mETIBZHixsMkKvaOZUZOuKrsvS9w=",
+  "Source": "upword.Api",
+  "BasePath": "_content/upword.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
