@@ -1,4 +1,5 @@
 namespace upword.Api.Dtos;
+
 public record class WordDto(
     string id,
     string word,

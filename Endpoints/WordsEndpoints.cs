@@ -1,4 +1,7 @@
+using Microsoft.EntityFrameworkCore;
+using upword.Api.Data;
 using upword.Api.Dtos;
+using upword.Api.Entities;
 
 namespace upword.Api.Endpoints;
 
@@ -49,35 +52,51 @@ public static class WordsEndpoints
             .WithName(GetWordEndpointName);
 
         // Endpoint to create a new word
+
         group.MapPost(
-            "/",
-            (CreateWordDto newWord) =>
-            {
-                // Find the maximum id in existing words
-                int maxId = words.Max(word => int.Parse(word.id));
+    "/",
+    async (CreateWordDto newWord, upwordContext dbContext) =>
+    {
+        // Fetch all IDs and find the maximum on the client side
+        var ids = await dbContext.Words.Select(w => w.Id).ToListAsync();
+        var maxId = ids.Count > 0 ? ids.Max(id => int.Parse(id)) : 0;
 
-                // Generate new id by incrementing the maximum id
-                string newId = (maxId + 1).ToString();
+        // Generate new id by incrementing the maximum id
+        var newId = (maxId + 1).ToString();
 
-                // Create a new WordDto instance from the CreateWordDto
-                WordDto word = new WordDto(
-                    newId,
-                    newWord.word,
-                    newWord.definition,
-                    newWord.partOfSpeech,
-                    newWord.pronunciation,
-                    newWord.exampleSentence,
-                    DateOnly.FromDateTime(DateTime.Today) // Convert DateTime.Today to DateOnly
-                );
+        // Create a new Word entity from the CreateWordDto
+        var word = new Word
+        {
+            Id = newId,
+            Value = newWord.word,
+            Definition = newWord.definition,
+            PartOfSpeech = newWord.partOfSpeech,
+            Pronunciation = newWord.pronunciation,
+            ExampleSentence = newWord.exampleSentence,
+            DateAdded = newWord.dateAdded != default ? newWord.dateAdded : DateOnly.FromDateTime(DateTime.UtcNow)
+        };
 
-                // Add the new WordDto to the words list
-                words.Add(word);
+        // Add the new Word to the context
+        dbContext.Words.Add(word);
 
-                // Return a response indicating success and the location of the new resource
-                return Results.CreatedAtRoute(GetWordEndpointName, new { id = word.id }, word);
-            }
+        // Save changes to the database
+        await dbContext.SaveChangesAsync();
+
+        // Create a WordDto from the saved Word entity
+        var wordDto = new WordDto(
+            word.Id,
+            word.Value,
+            word.Definition,
+            word.PartOfSpeech,
+            word.Pronunciation,
+            word.ExampleSentence,
+            word.DateAdded
         );
 
+        // Return a response indicating success and the location of the new resource
+        return Results.CreatedAtRoute(GetWordEndpointName, new { id = wordDto.id }, wordDto);
+    }
+);
         // Endpoint to update an existing word
         group.MapPut(
             "/{id}",
