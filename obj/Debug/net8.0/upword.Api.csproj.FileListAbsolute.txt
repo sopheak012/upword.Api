@@ -24,3 +24,9 @@ C:\Users\kosop\OneDrive\Desktop\Code\Backend\upword.Api\obj\Debug\net8.0\upword.
 C:\Users\kosop\OneDrive\Desktop\Code\Backend\upword.Api\obj\Debug\net8.0\upword.Api.genruntimeconfig.cache
 C:\Users\kosop\OneDrive\Desktop\Code\Backend\upword.Api\obj\Debug\net8.0\ref\upword.Api.dll
 C:\Users\kosop\OneDrive\Desktop\Code\Backend\upword.Api\obj\Debug\net8.0\upword.Api.sourcelink.json
+C:\Users\kosop\OneDrive\Desktop\Code\Backend\upword.Api\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\kosop\OneDrive\Desktop\Code\Backend\upword.Api\bin\Debug\net8.0\MinimalApis.Extensions.dll
+C:\Users\kosop\OneDrive\Desktop\Code\Backend\upword.Api\bin\Debug\net8.0\MiniValidation.dll
+C:\Users\kosop\OneDrive\Desktop\Code\Backend\upword.Api\obj\Debug\net8.0\upword.Api.csproj.AssemblyReference.cache
+C:\Users\kosop\OneDrive\Desktop\Code\Backend\upword.Api\obj\Debug\net8.0\upword.Api.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\kosop\OneDrive\Desktop\Code\Backend\upword.Api\obj\Debug\net8.0\upword.Api.csproj.Up2Date

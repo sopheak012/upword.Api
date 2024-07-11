@@ -1,15 +1,27 @@
 GET http://localhost:5125/words
 ###
-GET http://localhost:5125/words/5
+GET http://localhost:5125/words/1
 ###
-POST http://localhost:5125/games
+POST http://localhost:5125/words
 Content-Type: application/json
 
 {
-  "word": "Serendipity",
   "definition": "The occurrence and development of events by chance in a happy or beneficial way.",
   "partOfSpeech": "Noun",
   "pronunciation": "/ˌserənˈdipədi/",
   "exampleSentence": "The discovery of penicillin was a case of serendipity."
 }
+###
+PUT http://localhost:5125/words/1
+Content-Type: application/json
+
+{
+  "word": "AppleUpdated",
+  "definition": "A round fruit with red or green skin and a whitish interior, often enjoyed fresh or in recipes.",
+  "partOfSpeech": "Noun",
+  "pronunciation": "/ˈæpəl/",
+  "exampleSentence": "She took a bite of the juicy apple which she just picked from the tree."
+}
+###
+DELETE http://localhost:5125/words/1
 ###
