@@ -1,0 +1,508 @@
+[
+    {
+        "word": "abate",
+        "Definition": "to lessen in intensity or degree",
+        "PartOfSpeech": "verb",
+        "Pronunciation": "əˈbāt",
+        "ExampleSentences": [
+            "The storm finally began to abate.",
+            "He waited for his anger to abate before speaking.",
+            "As the pain started to abate, she felt relief."
+        ]
+    },
+    {
+        "word": "benevolent",
+        "Definition": "well-meaning and kindly",
+        "PartOfSpeech": "adjective",
+        "Pronunciation": "bəˈnevələnt",
+        "ExampleSentences": [
+            "The benevolent old man donated his fortune to charity.",
+            "She had a benevolent smile that put everyone at ease.",
+            "Their benevolent actions made a big difference in the community."
+        ]
+    },
+    {
+        "word": "candid",
+        "Definition": "truthful and straightforward; frank",
+        "PartOfSpeech": "adjective",
+        "Pronunciation": "ˈkandəd",
+        "ExampleSentences": [
+            "His candid remarks surprised everyone.",
+            "She appreciated his candid feedback on her project.",
+            "The interview was refreshing due to the candidate's candid answers."
+        ]
+    },
+    {
+        "word": "diligent",
+        "Definition": "showing care and effort in one's work or duties",
+        "PartOfSpeech": "adjective",
+        "Pronunciation": "ˈdiləjənt",
+        "ExampleSentences": [
+            "She was diligent in her studies and earned top grades.",
+            "The team worked diligently to meet the deadline.",
+            "His diligent nature earned him the respect of his peers."
+        ]
+    },
+    {
+        "word": "elucidate",
+        "Definition": "to make something clear; to explain",
+        "PartOfSpeech": "verb",
+        "Pronunciation": "iˈlo͞osəˌdāt",
+        "ExampleSentences": [
+            "The teacher tried to elucidate the complex topic.",
+            "Can you elucidate your reasoning behind that decision?",
+            "His explanation helped elucidate the mystery."
+        ]
+    },
+    {
+        "word": "fervent",
+        "Definition": "having or displaying a passionate intensity",
+        "PartOfSpeech": "adjective",
+        "Pronunciation": "ˈfərvənt",
+        "ExampleSentences": [
+            "She gave a fervent speech about climate change.",
+            "His fervent desire to help others was inspiring.",
+            "They are fervent supporters of the local team."
+        ]
+    },
+    {
+        "word": "gregarious",
+        "Definition": "fond of company; sociable",
+        "PartOfSpeech": "adjective",
+        "Pronunciation": "ɡrɪˈɡɛrɪəs",
+        "ExampleSentences": [
+            "He was a gregarious person who loved parties.",
+            "Gregarious animals tend to live in groups.",
+            "Her gregarious nature made her popular at school."
+        ]
+    },
+    {
+        "word": "hasten",
+        "Definition": "to be quick to do something",
+        "PartOfSpeech": "verb",
+        "Pronunciation": "ˈhāsn",
+        "ExampleSentences": [
+            "We must hasten our efforts to finish on time.",
+            "Hasten to the store before it closes.",
+            "The doctor urged her to hasten her recovery."
+        ]
+    },
+    {
+        "word": "imbue",
+        "Definition": "to inspire or permeate with a feeling or quality",
+        "PartOfSpeech": "verb",
+        "Pronunciation": "ɪmˈbjuː",
+        "ExampleSentences": [
+            "The teacher sought to imbue her students with a love of learning.",
+            "His words imbued the speech with emotion.",
+            "Art can imbue a sense of wonder in viewers."
+        ]
+    },
+    {
+        "word": "jubilant",
+        "Definition": "feeling or expressing great happiness and triumph",
+        "PartOfSpeech": "adjective",
+        "Pronunciation": "ˈjo͞obələnt",
+        "ExampleSentences": [
+            "The crowd was jubilant after the victory.",
+            "She felt jubilant upon receiving the good news.",
+            "His jubilant laughter filled the room."
+        ]
+    },
+    {
+        "word": "keen",
+        "Definition": "having a sharp edge; intellectually sharp; perceptive",
+        "PartOfSpeech": "adjective",
+        "Pronunciation": "kēn",
+        "ExampleSentences": [
+            "She has a keen sense of smell.",
+            "His keen intellect made him a great strategist.",
+            "The keen interest in the subject surprised her."
+        ]
+    },
+    {
+        "word": "lucid",
+        "Definition": "expressed clearly; easy to understand",
+        "PartOfSpeech": "adjective",
+        "Pronunciation": "ˈluːsɪd",
+        "ExampleSentences": [
+            "Her explanation was lucid and to the point.",
+            "He had a lucid dream about flying.",
+            "The instructions were lucid and easy to follow."
+        ]
+    },
+    {
+        "word": "meticulous",
+        "Definition": "showing great attention to detail; very careful and precise",
+        "PartOfSpeech": "adjective",
+        "Pronunciation": "məˈtɪkjʊləs",
+        "ExampleSentences": [
+            "She was meticulous in her research.",
+            "His meticulous notes helped him during the exam.",
+            "The artist was known for his meticulous attention to detail."
+        ]
+    },
+    {
+        "word": "nostalgia",
+        "Definition": "a sentimental longing for the past",
+        "PartOfSpeech": "noun",
+        "Pronunciation": "nəˈstaldʒə",
+        "ExampleSentences": [
+            "He felt a wave of nostalgia when he saw his childhood home.",
+            "Her song evokes nostalgia for simpler times.",
+            "Nostalgia can often be bittersweet."
+        ]
+    },
+    {
+        "word": "obscure",
+        "Definition": "not discovered or known about; uncertain",
+        "PartOfSpeech": "adjective",
+        "Pronunciation": "əbˈskyo͞or",
+        "ExampleSentences": [
+            "The details of the event remain obscure.",
+            "He has an obscure interest in rare books.",
+            "Her writing style was initially obscure but became clearer."
+        ]
+    },
+    {
+        "word": "palpable",
+        "Definition": "able to be touched or felt; tangible",
+        "PartOfSpeech": "adjective",
+        "Pronunciation": "ˈpalpəbl",
+        "ExampleSentences": [
+            "There was a palpable sense of excitement in the air.",
+            "The tension in the room was palpable.",
+            "Her joy was palpable as she opened the gift."
+        ]
+    },
+    {
+        "word": "quaint",
+        "Definition": "attractive in an unusual or old-fashioned way",
+        "PartOfSpeech": "adjective",
+        "Pronunciation": "kwānt",
+        "ExampleSentences": [
+            "The village had a quaint charm.",
+            "She loved the quaint little bookstore.",
+            "His clothing style was quaint yet stylish."
+        ]
+    },
+    {
+        "word": "revere",
+        "Definition": "to feel deep respect or admiration for something",
+        "PartOfSpeech": "verb",
+        "Pronunciation": "rɪˈvɪr",
+        "ExampleSentences": [
+            "Many people revere the work of great authors.",
+            "He is revered as a leader in his community.",
+            "To revere nature is to understand its importance."
+        ]
+    },
+    {
+        "word": "sublime",
+        "Definition": "of such excellence or beauty as to inspire great admiration",
+        "PartOfSpeech": "adjective",
+        "Pronunciation": "səˈblaɪm",
+        "ExampleSentences": [
+            "The sunset was a sublime sight.",
+            "Her performance was nothing short of sublime.",
+            "He felt a sublime sense of peace in nature."
+        ]
+    },
+    {
+        "word": "tranquil",
+        "Definition": "free from disturbance; calm",
+        "PartOfSpeech": "adjective",
+        "Pronunciation": "ˈtraŋkwəl",
+        "ExampleSentences": [
+            "The lake was tranquil in the early morning.",
+            "She sought a tranquil place to meditate.",
+            "His tranquil demeanor helped to soothe others."
+        ]
+    },
+    {
+        "word": "ubiquitous",
+        "Definition": "present, appearing, or found everywhere",
+        "PartOfSpeech": "adjective",
+        "Pronunciation": "juˈbɪkwɪtəs",
+        "ExampleSentences": [
+            "Smartphones are ubiquitous in today's society.",
+            "The company's logo was ubiquitous across the city.",
+            "His influence was ubiquitous in the industry."
+        ]
+    },
+    {
+        "word": "vivid",
+        "Definition": "producing powerful feelings or strong, clear images in the mind",
+        "PartOfSpeech": "adjective",
+        "Pronunciation": "ˈvɪvɪd",
+        "ExampleSentences": [
+            "She had vivid dreams that she could remember.",
+            "The painting was filled with vivid colors.",
+            "He described the event in vivid detail."
+        ]
+    },
+    {
+        "word": "wary",
+        "Definition": "feeling or showing caution about possible dangers or problems",
+        "PartOfSpeech": "adjective",
+        "Pronunciation": "ˈwɛəri",
+        "ExampleSentences": [
+            "He was wary of strangers offering help.",
+            "They are wary of making commitments.",
+            "She approached the situation with a wary attitude."
+        ]
+    },
+    {
+        "word": "zealous",
+        "Definition": "having or showing zeal; passionate",
+        "PartOfSpeech": "adjective",
+        "Pronunciation": "ˈzeləs",
+        "ExampleSentences": [
+            "He was zealous in his support for the cause.",
+            "Her zealous efforts were appreciated by the team.",
+            "They have a zealous commitment to their goals."
+        ]
+    },
+    {
+        "word": "acumen",
+        "Definition": "the ability to make good judgments and quick decisions",
+        "PartOfSpeech": "noun",
+        "Pronunciation": "ˈakyəmən",
+        "ExampleSentences": [
+            "Her business acumen helped the company succeed.",
+            "He demonstrated great acumen in his analyses.",
+            "Acumen is essential for effective leadership."
+        ]
+    },
+    {
+        "word": "benevolence",
+        "Definition": "the quality of being well-meaning; kindness",
+        "PartOfSpeech": "noun",
+        "Pronunciation": "bəˈnevələns",
+        "ExampleSentences": [
+            "Her benevolence was evident in her charitable work.",
+            "The organization's benevolence improved many lives.",
+            "Benevolence is a virtue in many cultures."
+        ]
+    },
+    {
+        "word": "camaraderie",
+        "Definition": "mutual trust and friendship among people",
+        "PartOfSpeech": "noun",
+        "Pronunciation": "ˌkäməˈrädərē",
+        "ExampleSentences": [
+            "The camaraderie among the teammates was strong.",
+            "They developed a camaraderie during their travels.",
+            "Camaraderie is vital for a cohesive team."
+        ]
+    },
+    {
+        "word": "diligence",
+        "Definition": "careful and persistent work or effort",
+        "PartOfSpeech": "noun",
+        "Pronunciation": "ˈdɪlɪdʒəns",
+        "ExampleSentences": [
+            "Her diligence in her studies paid off.",
+            "He showed great diligence in completing his tasks.",
+            "Diligence is essential for achieving success."
+        ]
+    },
+    {
+        "word": "empathy",
+        "Definition": "the ability to understand and share the feelings of another",
+        "PartOfSpeech": "noun",
+        "Pronunciation": "ˈɛmpəθi",
+        "ExampleSentences": [
+            "Empathy is important in building strong relationships.",
+            "He showed empathy towards the suffering of others.",
+            "Her empathy allowed her to connect with clients."
+        ]
+    },
+    {
+        "word": "fortitude",
+        "Definition": "courage in pain or adversity",
+        "PartOfSpeech": "noun",
+        "Pronunciation": "ˈfɔːrtɪtjuːd",
+        "ExampleSentences": [
+            "She faced her illness with fortitude.",
+            "Fortitude is necessary during challenging times.",
+            "His fortitude inspired those around him."
+        ]
+    },
+    {
+        "word": "gratitude",
+        "Definition": "the quality of being thankful; readiness to show appreciation",
+        "PartOfSpeech": "noun",
+        "Pronunciation": "ˈɡrætɪtjuːd",
+        "ExampleSentences": [
+            "He expressed his gratitude for her help.",
+            "Gratitude can improve overall happiness.",
+            "She felt a deep sense of gratitude for her family."
+        ]
+    },
+    {
+        "word": "harmony",
+        "Definition": "the quality of forming a pleasing and consistent whole",
+        "PartOfSpeech": "noun",
+        "Pronunciation": "ˈhɑːrməni",
+        "ExampleSentences": [
+            "They lived in harmony with nature.",
+            "The choir sang in perfect harmony.",
+            "Harmony is essential for a peaceful community."
+        ]
+    },
+    {
+        "word": "innovation",
+        "Definition": "the act of making something new or improved",
+        "PartOfSpeech": "noun",
+        "Pronunciation": "ˌɪnəˈveɪʃən",
+        "ExampleSentences": [
+            "Innovation drives progress in technology.",
+            "Her ideas led to significant innovation in the field.",
+            "Companies thrive on innovation and creativity."
+        ]
+    },
+    {
+        "word": "judicious",
+        "Definition": "having, showing, or done with good judgment or sense",
+        "PartOfSpeech": "adjective",
+        "Pronunciation": "dʒuˈdɪʃəs",
+        "ExampleSentences": [
+            "He made judicious decisions based on evidence.",
+            "Judicious planning can save time and resources.",
+            "Her judicious use of funds helped the project succeed."
+        ]
+    },
+    {
+        "word": "kindred",
+        "Definition": "similar in kind; related",
+        "PartOfSpeech": "adjective",
+        "Pronunciation": "ˈkɪndrə",
+        "ExampleSentences": [
+            "They found kindred spirits in each other.",
+            "The kindred themes in their works connected them.",
+            "Her kindred interest in art sparked a friendship."
+        ]
+    },
+    {
+        "word": "legacy",
+        "Definition": "something handed down by a predecessor",
+        "PartOfSpeech": "noun",
+        "Pronunciation": "ˈlɛɡəsi",
+        "ExampleSentences": [
+            "His legacy will live on through his children.",
+            "They are working to preserve the legacy of their founder.",
+            "A legacy can take many forms, from money to ideals."
+        ]
+    },
+    {
+        "word": "maverick",
+        "Definition": "an independent-minded person",
+        "PartOfSpeech": "noun",
+        "Pronunciation": "ˈmævərɪk",
+        "ExampleSentences": [
+            "The maverick director broke all the traditional rules.",
+            "She is a maverick in her approach to business.",
+            "Mavericks often challenge the status quo."
+        ]
+    },
+    {
+        "word": "nurture",
+        "Definition": "to care for and encourage the growth or development of",
+        "PartOfSpeech": "verb",
+        "Pronunciation": "ˈnɜːrtʃər",
+        "ExampleSentences": [
+            "It’s important to nurture your talents.",
+            "They nurture their garden with love.",
+            "Parents should nurture their children's interests."
+        ]
+    },
+    {
+        "word": "optimistic",
+        "Definition": "hopeful and confident about the future",
+        "PartOfSpeech": "adjective",
+        "Pronunciation": "ˌɒptɪˈmɪstɪk",
+        "ExampleSentences": [
+            "She has an optimistic outlook on life.",
+            "His optimistic attitude influenced the team's morale.",
+            "Being optimistic can lead to better outcomes."
+        ]
+    },
+    {
+        "word": "passionate",
+        "Definition": "showing or caused by strong feelings or beliefs",
+        "PartOfSpeech": "adjective",
+        "Pronunciation": "ˈpæʃənɪt",
+        "ExampleSentences": [
+            "She is passionate about environmental issues.",
+            "His passionate speech inspired the audience.",
+            "They have a passionate love for music."
+        ]
+    },
+    {
+        "word": "quench",
+        "Definition": "to satisfy a thirst; to extinguish",
+        "PartOfSpeech": "verb",
+        "Pronunciation": "kwɛnʧ",
+        "ExampleSentences": [
+            "Water quenched her thirst after the long hike.",
+            "The firefighters worked to quench the blaze.",
+            "A good book can quench your desire for adventure."
+        ]
+    },
+    {
+        "word": "resilient",
+        "Definition": "able to recover quickly from difficulties",
+        "PartOfSpeech": "adjective",
+        "Pronunciation": "rɪˈzɪljənt",
+        "ExampleSentences": [
+            "Children are often more resilient than adults realize.",
+            "Her resilient spirit helped her through tough times.",
+            "The community showed resilient strength after the disaster."
+        ]
+    },
+    {
+        "word": "serendipity",
+        "Definition": "the occurrence of events by chance in a happy way",
+        "PartOfSpeech": "noun",
+        "Pronunciation": "ˌsɛrəˈdɪpɪti",
+        "ExampleSentences": [
+            "Meeting her was pure serendipity.",
+            "They found the hidden café by serendipity.",
+            "Serendipity can lead to wonderful discoveries."
+        ]
+    },
+    {
+        "word": "tenacity",
+        "Definition": "the quality or fact of being able to grip something firmly; persistence",
+        "PartOfSpeech": "noun",
+        "Pronunciation": "təˈnæsɪti",
+        "ExampleSentences": [
+            "Her tenacity in pursuing her goals was admirable.",
+            "Tenacity is key to overcoming challenges.",
+            "He approached each task with great tenacity."
+        ]
+    },
+    {
+        "word": "ubiquity",
+        "Definition": "the fact of appearing everywhere or being very common",
+        "PartOfSpeech": "noun",
+        "Pronunciation": "juˈbɪkwɪti",
+        "ExampleSentences": [
+            "The ubiquity of social media has changed communication.",
+            "Ubiquity in branding can enhance recognition.",
+            "Their product's ubiquity makes it a household name."
+        ]
+    },
+    {
+        "word": "vulnerability",
+        "Definition": "the quality of being open to injury, damage, or criticism",
+        "PartOfSpeech": "noun",
+        "Pronunciation": "ˌvʌlnəˈbɪləti",
+        "ExampleSentences": [
+            "Her vulnerability made her more relatable.",
+            "Understanding vulnerability is important in relationships.",
+            "They discussed the vulnerability of their infrastructure."
+        ]
+    }
+]
