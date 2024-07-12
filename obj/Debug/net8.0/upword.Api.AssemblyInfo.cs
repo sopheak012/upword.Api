@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("upword.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b7d6508ba34f5107def86c64170e5b48850a6d9e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7dbed631b7860394ec6c894cb1327f8d86c01ec2")]
 [assembly: System.Reflection.AssemblyProductAttribute("upword.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("upword.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

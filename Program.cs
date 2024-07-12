@@ -12,6 +12,6 @@ var app = builder.Build();
 
 app.MapWordsEndpoints();
 
-app.MigrateDb();
+await app.MigrateDbAsync();
 
 app.Run();
