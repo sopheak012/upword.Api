@@ -40,20 +40,18 @@ public static class WordsEndpoints
             .WithName(GetWordEndpointName);
 
         // Endpoint to create a new word
+
         group.MapPost(
             "/",
             async (CreateWordDto newWord, upwordContext dbContext) =>
             {
-                // Fetch all IDs
-                var ids = await dbContext.Words.Select(w => w.Id).ToListAsync();
-
-                // Parse and find max in memory
-                var maxId = ids.Count > 0 ? ids.Max(id => int.Parse(id)) : 0;
-                var newId = (maxId + 1).ToString();
+                // Check if the Value already exists
+                if (await dbContext.Words.AnyAsync(w => w.Value == newWord.word))
+                {
+                    return Results.Conflict("A word with this value already exists.");
+                }
 
                 Word word = newWord.ToEntity();
-                word.Id = newId;
-
                 dbContext.Words.Add(word);
                 await dbContext.SaveChangesAsync();
 
