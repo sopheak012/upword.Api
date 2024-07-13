@@ -51,7 +51,10 @@ public static class WordsEndpoints
                     return Results.Conflict("A word with this value already exists.");
                 }
 
-                Word word = newWord.ToEntity();
+                // Generate new ID
+                string newId = await GenerateNewId(dbContext);
+
+                Word word = newWord.ToEntity(newId);
                 dbContext.Words.Add(word);
                 await dbContext.SaveChangesAsync();
 
@@ -62,7 +65,6 @@ public static class WordsEndpoints
                 );
             }
         );
-
         // Endpoint to update an existing word
         group.MapPut(
             "/{id}",
@@ -101,5 +103,20 @@ public static class WordsEndpoints
         );
 
         return group;
+    }
+
+    // Add this method to generate the new ID
+    private static async Task<string> GenerateNewId(upwordContext dbContext)
+    {
+        var maxId = await dbContext.Words.MaxAsync(w => w.Id);
+        if (int.TryParse(maxId, out int numericId))
+        {
+            return (numericId + 1).ToString();
+        }
+        else
+        {
+            // If the current max ID is not a number, start from 1
+            return "1";
+        }
     }
 }
