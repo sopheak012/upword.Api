@@ -16,6 +16,9 @@ namespace upword.Api.Data
 
             // Ensure the 'Value' (word) column is unique
             modelBuilder.Entity<Word>().HasIndex(w => w.Value).IsUnique();
+
+            // Specify that ExampleSentences is stored as JSON
+            modelBuilder.Entity<Word>().Property(w => w.ExampleSentences).HasColumnType("TEXT"); // Store as TEXT in SQLite
         }
     }
 }

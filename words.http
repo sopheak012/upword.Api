@@ -1,28 +1,35 @@
-GET http://localhost:5125/words
+GET http://localhost:5125/words 
 ###
-GET http://localhost:5125/words/6
+GET http://localhost:5125/words/1 
 ###
 POST http://localhost:5125/words
 Content-Type: application/json
 
 {
-  "word": "Serendipity",
-  "definition": "The occurrence and development of events by chance in a happy or beneficial way.",
-  "partOfSpeech": "Noun",
-  "pronunciation": "/ˌserənˈdipədi/",
-  "exampleSentence": "The discovery of penicillin was a case of serendipity."
-}
+    "Value": "Serendipity",
+    "Definition": "The occurrence and development of events by chance in a happy or beneficial way.",
+    "PartOfSpeech": "Noun",
+    "Pronunciation": "/ˌserənˈdipədi/",
+    "ExampleSentences": [
+        "The discovery of penicillin was a case of serendipity.",
+        "Finding a $20 bill in an old coat pocket was pure serendipity.",
+        "Their meeting was a serendipitous encounter that changed their lives."
+    ]
+} 
 ###
-PUT http://localhost:5125/words/1
+PUT http://localhost:5125/words/1 
 Content-Type: application/json
 
 {
-  "word": "AppleUpdated",
-  "definition": "A round fruit with red or green skin and a whitish interior, often enjoyed fresh or in recipes.",
-  "partOfSpeech": "Noun",
-  "pronunciation": "/ˈæpəl/",
-  "exampleSentence": "She took a bite of the juicy apple which she just picked from the tree."
+    "Value": "AppleUpdated",
+    "Definition": "A round fruit with red or green skin and a whitish interior, often enjoyed fresh or in recipes.",
+    "PartOfSpeech": "Noun",
+    "Pronunciation": "/ˈæpəl/",
+    "ExampleSentences": [
+        "She took a bite of the juicy apple which she just picked from the tree.",
+        "He added apple slices to the salad for extra crunch.",
+        "The apple pie was a family favorite during the holidays."
+    ]
 }
 ###
-DELETE http://localhost:5125/words/6
-###
+DELETE http://localhost:5125/words/1 

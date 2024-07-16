@@ -3,11 +3,11 @@ using System.ComponentModel.DataAnnotations;
 namespace upword.Api.Dtos;
 
 public record class UpdateWordDto(
-    string id,
-    string word,
-    [StringLength(1000)] string definition,
-    [StringLength(50)] string partOfSpeech,
-    [StringLength(100)] string pronunciation,
-    [StringLength(500)] string exampleSentence,
-    DateOnly dateAdded
+    string Id,
+    string Value,
+    [StringLength(1000)] string? Definition,
+    [StringLength(50)] string? PartOfSpeech,
+    [StringLength(100)] string? Pronunciation,
+    [Required, MinLength(1)] string[] ExampleSentences, // Array for multiple example sentences
+    DateOnly DateAdded
 );

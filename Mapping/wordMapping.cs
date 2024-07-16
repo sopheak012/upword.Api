@@ -5,21 +5,21 @@ namespace upword.Api.Mapping;
 
 public static class WordMapping
 {
-    public static Word ToEntity(this CreateWordDto word, string newId)
+    public static Word ToEntity(this CreateWordDto wordDto, string newId)
     {
         return new Word
         {
             Id = newId,
-            Value = word.word,
-            Definition = word.definition,
-            PartOfSpeech = word.partOfSpeech,
-            Pronunciation = word.pronunciation,
-            ExampleSentence = word.exampleSentence,
+            Value = wordDto.Value, // Changed from 'word' to 'Value'
+            Definition = wordDto.Definition,
+            PartOfSpeech = wordDto.PartOfSpeech,
+            Pronunciation = wordDto.Pronunciation,
+            ExampleSentences = wordDto.ExampleSentences, // Change to array of strings
             DateAdded = DateOnly.FromDateTime(DateTime.UtcNow)
         };
     }
 
-    public static WordDto toDto(this Word word)
+    public static WordDto ToDto(this Word word) // Change to ToDto
     {
         return new WordDto(
             word.Id,
@@ -27,22 +27,22 @@ public static class WordMapping
             word.Definition,
             word.PartOfSpeech,
             word.Pronunciation,
-            word.ExampleSentence,
+            word.ExampleSentences,
             word.DateAdded
         );
     }
 
-    public static Word ToEntity(this UpdateWordDto word, string id)
+    public static Word ToEntity(this UpdateWordDto wordDto, string id)
     {
         return new Word
         {
             Id = id,
-            Value = word.word,
-            Definition = word.definition,
-            PartOfSpeech = word.partOfSpeech,
-            Pronunciation = word.pronunciation,
-            ExampleSentence = word.exampleSentence,
-            DateAdded = DateOnly.FromDateTime(DateTime.UtcNow) // Generate the date here
+            Value = wordDto.Value,
+            Definition = wordDto.Definition,
+            PartOfSpeech = wordDto.PartOfSpeech,
+            Pronunciation = wordDto.Pronunciation,
+            ExampleSentences = wordDto.ExampleSentences,
+            DateAdded = wordDto.DateAdded
         };
     }
 }

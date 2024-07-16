@@ -20,7 +20,7 @@ public static class WordsEndpoints
             async (upwordContext dbContext) =>
             {
                 var words = await dbContext.Words.ToListAsync();
-                return words.Select(w => w.toDto());
+                return Results.Ok(words.Select(w => w.ToDto()));
             }
         );
 
@@ -32,27 +32,33 @@ public static class WordsEndpoints
                 {
                     var word = await dbContext.Words.FindAsync(id);
                     if (word == null)
-                        return Results.NotFound();
+                        return Results.NotFound("Word not found.");
 
-                    return Results.Ok(word.toDto());
+                    return Results.Ok(word.ToDto());
                 }
             )
             .WithName(GetWordEndpointName);
 
         // Endpoint to create a new word
-
         group.MapPost(
             "/",
             async (CreateWordDto newWord, upwordContext dbContext) =>
             {
-                // Check if the Value already exists
-                if (await dbContext.Words.AnyAsync(w => w.Value == newWord.word))
+                // Check if the Value already exists (case-insensitive)
+                if (
+                    await dbContext.Words.AnyAsync(w =>
+                        w.Value.ToLower() == newWord.Value.ToLower()
+                    )
+                )
                 {
                     return Results.Conflict("A word with this value already exists.");
                 }
 
                 // Generate new ID
-                string newId = await GenerateNewId(dbContext);
+                var highestId = dbContext.Words.Any()
+                    ? dbContext.Words.Max(w => int.Parse(w.Id))
+                    : 0;
+                string newId = (highestId + 1).ToString();
 
                 Word word = newWord.ToEntity(newId);
                 dbContext.Words.Add(word);
@@ -61,26 +67,33 @@ public static class WordsEndpoints
                 return Results.CreatedAtRoute(
                     GetWordEndpointName,
                     new { id = word.Id },
-                    word.toDto()
+                    word.ToDto()
                 );
             }
         );
+
         // Endpoint to update an existing word
         group.MapPut(
             "/{id}",
             async (string id, UpdateWordDto updatedWord, upwordContext dbContext) =>
             {
-                // Find the word by id
                 var existingWord = await dbContext.Words.FindAsync(id);
                 if (existingWord == null)
                 {
-                    return Results.NotFound();
+                    return Results.NotFound("Word not found.");
                 }
 
-                dbContext.Entry(existingWord).CurrentValues.SetValues(updatedWord.ToEntity(id));
+                // Update existing word properties
+                existingWord.Value = updatedWord.Value;
+                existingWord.Definition = updatedWord.Definition;
+                existingWord.PartOfSpeech = updatedWord.PartOfSpeech;
+                existingWord.Pronunciation = updatedWord.Pronunciation;
+                existingWord.ExampleSentences = updatedWord.ExampleSentences;
+                existingWord.DateAdded = updatedWord.DateAdded; // Ensure date is provided
+
                 await dbContext.SaveChangesAsync();
 
-                return Results.Ok(existingWord.toDto());
+                return Results.Ok(existingWord.ToDto());
             }
         );
 
@@ -92,31 +105,16 @@ public static class WordsEndpoints
                 var word = await dbContext.Words.FindAsync(id);
                 if (word == null)
                 {
-                    return Results.NotFound();
+                    return Results.NotFound("Word not found.");
                 }
 
                 dbContext.Words.Remove(word);
                 await dbContext.SaveChangesAsync();
 
-                return Results.Ok(word.toDto());
+                return Results.Ok(word.ToDto());
             }
         );
 
         return group;
-    }
-
-    // Add this method to generate the new ID
-    private static async Task<string> GenerateNewId(upwordContext dbContext)
-    {
-        var maxId = await dbContext.Words.MaxAsync(w => w.Id);
-        if (int.TryParse(maxId, out int numericId))
-        {
-            return (numericId + 1).ToString();
-        }
-        else
-        {
-            // If the current max ID is not a number, start from 1
-            return "1";
-        }
     }
 }
