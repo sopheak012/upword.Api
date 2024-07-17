@@ -1,6 +1,6 @@
 [
     {
-        "word": "abate",
+        "Value": "abate",
         "Definition": "to lessen in intensity or degree",
         "PartOfSpeech": "verb",
         "Pronunciation": "əˈbāt",
@@ -11,7 +11,7 @@
         ]
     },
     {
-        "word": "benevolent",
+        "Value": "benevolent",
         "Definition": "well-meaning and kindly",
         "PartOfSpeech": "adjective",
         "Pronunciation": "bəˈnevələnt",
@@ -22,7 +22,7 @@
         ]
     },
     {
-        "word": "candid",
+        "Value": "candid",
         "Definition": "truthful and straightforward; frank",
         "PartOfSpeech": "adjective",
         "Pronunciation": "ˈkandəd",
@@ -33,7 +33,7 @@
         ]
     },
     {
-        "word": "diligent",
+        "Value": "diligent",
         "Definition": "showing care and effort in one's work or duties",
         "PartOfSpeech": "adjective",
         "Pronunciation": "ˈdiləjənt",
@@ -44,7 +44,7 @@
         ]
     },
     {
-        "word": "elucidate",
+        "Value": "elucidate",
         "Definition": "to make something clear; to explain",
         "PartOfSpeech": "verb",
         "Pronunciation": "iˈlo͞osəˌdāt",
@@ -55,7 +55,7 @@
         ]
     },
     {
-        "word": "fervent",
+        "Value": "fervent",
         "Definition": "having or displaying a passionate intensity",
         "PartOfSpeech": "adjective",
         "Pronunciation": "ˈfərvənt",
@@ -66,7 +66,7 @@
         ]
     },
     {
-        "word": "gregarious",
+        "Value": "gregarious",
         "Definition": "fond of company; sociable",
         "PartOfSpeech": "adjective",
         "Pronunciation": "ɡrɪˈɡɛrɪəs",
@@ -77,7 +77,7 @@
         ]
     },
     {
-        "word": "hasten",
+        "Value": "hasten",
         "Definition": "to be quick to do something",
         "PartOfSpeech": "verb",
         "Pronunciation": "ˈhāsn",
@@ -88,18 +88,18 @@
         ]
     },
     {
-        "word": "imbue",
+        "Value": "imbue",
         "Definition": "to inspire or permeate with a feeling or quality",
         "PartOfSpeech": "verb",
         "Pronunciation": "ɪmˈbjuː",
         "ExampleSentences": [
             "The teacher sought to imbue her students with a love of learning.",
-            "His words imbued the speech with emotion.",
+            "His Values imbued the speech with emotion.",
             "Art can imbue a sense of wonder in viewers."
         ]
     },
     {
-        "word": "jubilant",
+        "Value": "jubilant",
         "Definition": "feeling or expressing great happiness and triumph",
         "PartOfSpeech": "adjective",
         "Pronunciation": "ˈjo͞obələnt",
@@ -110,7 +110,7 @@
         ]
     },
     {
-        "word": "keen",
+        "Value": "keen",
         "Definition": "having a sharp edge; intellectually sharp; perceptive",
         "PartOfSpeech": "adjective",
         "Pronunciation": "kēn",
@@ -121,7 +121,7 @@
         ]
     },
     {
-        "word": "lucid",
+        "Value": "lucid",
         "Definition": "expressed clearly; easy to understand",
         "PartOfSpeech": "adjective",
         "Pronunciation": "ˈluːsɪd",
@@ -132,7 +132,7 @@
         ]
     },
     {
-        "word": "meticulous",
+        "Value": "meticulous",
         "Definition": "showing great attention to detail; very careful and precise",
         "PartOfSpeech": "adjective",
         "Pronunciation": "məˈtɪkjʊləs",
@@ -143,7 +143,7 @@
         ]
     },
     {
-        "word": "nostalgia",
+        "Value": "nostalgia",
         "Definition": "a sentimental longing for the past",
         "PartOfSpeech": "noun",
         "Pronunciation": "nəˈstaldʒə",
@@ -154,7 +154,7 @@
         ]
     },
     {
-        "word": "obscure",
+        "Value": "obscure",
         "Definition": "not discovered or known about; uncertain",
         "PartOfSpeech": "adjective",
         "Pronunciation": "əbˈskyo͞or",
@@ -165,7 +165,7 @@
         ]
     },
     {
-        "word": "palpable",
+        "Value": "palpable",
         "Definition": "able to be touched or felt; tangible",
         "PartOfSpeech": "adjective",
         "Pronunciation": "ˈpalpəbl",
@@ -176,7 +176,7 @@
         ]
     },
     {
-        "word": "quaint",
+        "Value": "quaint",
         "Definition": "attractive in an unusual or old-fashioned way",
         "PartOfSpeech": "adjective",
         "Pronunciation": "kwānt",
@@ -187,7 +187,7 @@
         ]
     },
     {
-        "word": "revere",
+        "Value": "revere",
         "Definition": "to feel deep respect or admiration for something",
         "PartOfSpeech": "verb",
         "Pronunciation": "rɪˈvɪr",
@@ -198,7 +198,7 @@
         ]
     },
     {
-        "word": "sublime",
+        "Value": "sublime",
         "Definition": "of such excellence or beauty as to inspire great admiration",
         "PartOfSpeech": "adjective",
         "Pronunciation": "səˈblaɪm",
@@ -209,7 +209,7 @@
         ]
     },
     {
-        "word": "tranquil",
+        "Value": "tranquil",
         "Definition": "free from disturbance; calm",
         "PartOfSpeech": "adjective",
         "Pronunciation": "ˈtraŋkwəl",
@@ -220,7 +220,7 @@
         ]
     },
     {
-        "word": "ubiquitous",
+        "Value": "ubiquitous",
         "Definition": "present, appearing, or found everywhere",
         "PartOfSpeech": "adjective",
         "Pronunciation": "juˈbɪkwɪtəs",
@@ -231,7 +231,7 @@
         ]
     },
     {
-        "word": "vivid",
+        "Value": "vivid",
         "Definition": "producing powerful feelings or strong, clear images in the mind",
         "PartOfSpeech": "adjective",
         "Pronunciation": "ˈvɪvɪd",
@@ -242,7 +242,7 @@
         ]
     },
     {
-        "word": "wary",
+        "Value": "wary",
         "Definition": "feeling or showing caution about possible dangers or problems",
         "PartOfSpeech": "adjective",
         "Pronunciation": "ˈwɛəri",
@@ -253,7 +253,7 @@
         ]
     },
     {
-        "word": "zealous",
+        "Value": "zealous",
         "Definition": "having or showing zeal; passionate",
         "PartOfSpeech": "adjective",
         "Pronunciation": "ˈzeləs",
@@ -264,7 +264,7 @@
         ]
     },
     {
-        "word": "acumen",
+        "Value": "acumen",
         "Definition": "the ability to make good judgments and quick decisions",
         "PartOfSpeech": "noun",
         "Pronunciation": "ˈakyəmən",
@@ -275,7 +275,7 @@
         ]
     },
     {
-        "word": "benevolence",
+        "Value": "benevolence",
         "Definition": "the quality of being well-meaning; kindness",
         "PartOfSpeech": "noun",
         "Pronunciation": "bəˈnevələns",
@@ -286,7 +286,7 @@
         ]
     },
     {
-        "word": "camaraderie",
+        "Value": "camaraderie",
         "Definition": "mutual trust and friendship among people",
         "PartOfSpeech": "noun",
         "Pronunciation": "ˌkäməˈrädərē",
@@ -297,7 +297,7 @@
         ]
     },
     {
-        "word": "diligence",
+        "Value": "diligence",
         "Definition": "careful and persistent work or effort",
         "PartOfSpeech": "noun",
         "Pronunciation": "ˈdɪlɪdʒəns",
@@ -308,7 +308,7 @@
         ]
     },
     {
-        "word": "empathy",
+        "Value": "empathy",
         "Definition": "the ability to understand and share the feelings of another",
         "PartOfSpeech": "noun",
         "Pronunciation": "ˈɛmpəθi",
@@ -319,7 +319,7 @@
         ]
     },
     {
-        "word": "fortitude",
+        "Value": "fortitude",
         "Definition": "courage in pain or adversity",
         "PartOfSpeech": "noun",
         "Pronunciation": "ˈfɔːrtɪtjuːd",
@@ -330,7 +330,7 @@
         ]
     },
     {
-        "word": "gratitude",
+        "Value": "gratitude",
         "Definition": "the quality of being thankful; readiness to show appreciation",
         "PartOfSpeech": "noun",
         "Pronunciation": "ˈɡrætɪtjuːd",
@@ -341,7 +341,7 @@
         ]
     },
     {
-        "word": "harmony",
+        "Value": "harmony",
         "Definition": "the quality of forming a pleasing and consistent whole",
         "PartOfSpeech": "noun",
         "Pronunciation": "ˈhɑːrməni",
@@ -352,7 +352,7 @@
         ]
     },
     {
-        "word": "innovation",
+        "Value": "innovation",
         "Definition": "the act of making something new or improved",
         "PartOfSpeech": "noun",
         "Pronunciation": "ˌɪnəˈveɪʃən",
@@ -363,7 +363,7 @@
         ]
     },
     {
-        "word": "judicious",
+        "Value": "judicious",
         "Definition": "having, showing, or done with good judgment or sense",
         "PartOfSpeech": "adjective",
         "Pronunciation": "dʒuˈdɪʃəs",
@@ -374,7 +374,7 @@
         ]
     },
     {
-        "word": "kindred",
+        "Value": "kindred",
         "Definition": "similar in kind; related",
         "PartOfSpeech": "adjective",
         "Pronunciation": "ˈkɪndrə",
@@ -385,7 +385,7 @@
         ]
     },
     {
-        "word": "legacy",
+        "Value": "legacy",
         "Definition": "something handed down by a predecessor",
         "PartOfSpeech": "noun",
         "Pronunciation": "ˈlɛɡəsi",
@@ -396,7 +396,7 @@
         ]
     },
     {
-        "word": "maverick",
+        "Value": "maverick",
         "Definition": "an independent-minded person",
         "PartOfSpeech": "noun",
         "Pronunciation": "ˈmævərɪk",
@@ -407,7 +407,7 @@
         ]
     },
     {
-        "word": "nurture",
+        "Value": "nurture",
         "Definition": "to care for and encourage the growth or development of",
         "PartOfSpeech": "verb",
         "Pronunciation": "ˈnɜːrtʃər",
@@ -418,7 +418,7 @@
         ]
     },
     {
-        "word": "optimistic",
+        "Value": "optimistic",
         "Definition": "hopeful and confident about the future",
         "PartOfSpeech": "adjective",
         "Pronunciation": "ˌɒptɪˈmɪstɪk",
@@ -429,7 +429,7 @@
         ]
     },
     {
-        "word": "passionate",
+        "Value": "passionate",
         "Definition": "showing or caused by strong feelings or beliefs",
         "PartOfSpeech": "adjective",
         "Pronunciation": "ˈpæʃənɪt",
@@ -440,7 +440,7 @@
         ]
     },
     {
-        "word": "quench",
+        "Value": "quench",
         "Definition": "to satisfy a thirst; to extinguish",
         "PartOfSpeech": "verb",
         "Pronunciation": "kwɛnʧ",
@@ -451,7 +451,7 @@
         ]
     },
     {
-        "word": "resilient",
+        "Value": "resilient",
         "Definition": "able to recover quickly from difficulties",
         "PartOfSpeech": "adjective",
         "Pronunciation": "rɪˈzɪljənt",
@@ -462,7 +462,7 @@
         ]
     },
     {
-        "word": "serendipity",
+        "Value": "serendipity",
         "Definition": "the occurrence of events by chance in a happy way",
         "PartOfSpeech": "noun",
         "Pronunciation": "ˌsɛrəˈdɪpɪti",
@@ -473,7 +473,7 @@
         ]
     },
     {
-        "word": "tenacity",
+        "Value": "tenacity",
         "Definition": "the quality or fact of being able to grip something firmly; persistence",
         "PartOfSpeech": "noun",
         "Pronunciation": "təˈnæsɪti",
@@ -484,7 +484,7 @@
         ]
     },
     {
-        "word": "ubiquity",
+        "Value": "ubiquity",
         "Definition": "the fact of appearing everywhere or being very common",
         "PartOfSpeech": "noun",
         "Pronunciation": "juˈbɪkwɪti",
@@ -495,7 +495,7 @@
         ]
     },
     {
-        "word": "vulnerability",
+        "Value": "vulnerability",
         "Definition": "the quality of being open to injury, damage, or criticism",
         "PartOfSpeech": "noun",
         "Pronunciation": "ˌvʌlnəˈbɪləti",

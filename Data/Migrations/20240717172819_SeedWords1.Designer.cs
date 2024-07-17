@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using upword.Api.Data;
 
@@ -10,9 +11,11 @@ using upword.Api.Data;
 namespace upword.Api.Data.Migrations
 {
     [DbContext(typeof(upwordContext))]
-    partial class upwordContextModelSnapshot : ModelSnapshot
+    [Migration("20240717172819_SeedWords1")]
+    partial class SeedWords1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.7");
@@ -52,7 +55,7 @@ namespace upword.Api.Data.Migrations
                         new
                         {
                             Id = "1",
-                            DateAdded = new DateOnly(2024, 7, 16),
+                            DateAdded = new DateOnly(2024, 7, 17),
                             Definition = "The occurrence and development of events by chance in a happy or beneficial way.",
                             ExampleSentences = "[\"Example 1\",\"Example 2\"]",
                             PartOfSpeech = "Noun",
