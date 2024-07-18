@@ -11,6 +11,7 @@ namespace upword.Api.Services
         private readonly List<Word> _words;
         private readonly IHttpClientFactory _httpClientFactory;
         private readonly IServiceScopeFactory _serviceScopeFactory;
+        private HashSet<string> _existingWordsSet;
 
         public WordService(
             string filePath,
@@ -22,6 +23,7 @@ namespace upword.Api.Services
             _words = LoadWordsFromFile(filePath);
             _httpClientFactory = httpClientFactory;
             _serviceScopeFactory = serviceScopeFactory;
+            _existingWordsSet = new HashSet<string>();
             Console.WriteLine($"Loaded {_words.Count} words from file.");
         }
 
@@ -62,9 +64,9 @@ namespace upword.Api.Services
             return _words;
         }
 
-        public Word GetRandomWord()
+        private Word GetRandomWordFromFile()
         {
-            Console.WriteLine("Getting a random word...");
+            Console.WriteLine("Getting a random word from file...");
             var random = new Random();
             var validWords = _words.Where(w => !string.IsNullOrWhiteSpace(w.Value)).ToList();
 
@@ -74,8 +76,13 @@ namespace upword.Api.Services
                 return null;
             }
 
-            int index = random.Next(validWords.Count);
-            var selectedWord = validWords[index];
+            Word selectedWord;
+            do
+            {
+                int index = random.Next(validWords.Count);
+                selectedWord = validWords[index];
+            } while (_existingWordsSet.Contains(selectedWord.Value.ToLower()));
+
             Console.WriteLine($"Selected word: {selectedWord.Value}");
             return selectedWord;
         }
@@ -98,8 +105,13 @@ namespace upword.Api.Services
                     return false; // A word has already been added today
                 }
 
+                // Load existing words from the database into the set
+                _existingWordsSet = new HashSet<string>(
+                    await dbContext.Words.Select(w => w.Value.ToLower()).ToListAsync()
+                );
+
                 // If no word has been added today, proceed to add a new word
-                var word = GetRandomWord();
+                var word = GetRandomWordFromFile();
                 if (word == null || string.IsNullOrWhiteSpace(word.Value))
                 {
                     Console.WriteLine("No valid word found.");
