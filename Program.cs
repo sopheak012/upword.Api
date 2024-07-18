@@ -20,7 +20,25 @@ builder.Services.AddScoped<WordService>(provider => new WordService(
     provider.GetRequiredService<IServiceScopeFactory>()
 ));
 
+// Add CORS policy
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(
+        "AllowFrontend",
+        builder =>
+        {
+            builder
+                .WithOrigins("http://localhost:5173") 
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+        }
+    );
+});
+
 var app = builder.Build();
+
+// Use CORS policy
+app.UseCors("AllowFrontend");
 
 // Map your endpoints for words
 app.MapWordsEndpoints();
