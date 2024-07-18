@@ -1,3 +1,6 @@
+GET http://localhost:5125/words/wordoftheday
+
+###
 GET http://localhost:5125/words 
 ###
 GET http://localhost:5125/words/1 
