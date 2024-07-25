@@ -1,5 +1,8 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using upword.Api.Data;
 using upword.Api.Endpoints;
+using upword.Api.Entities;
 using upword.Api.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,6 +23,15 @@ builder.Services.AddScoped<WordService>(provider => new WordService(
     provider.GetRequiredService<IServiceScopeFactory>()
 ));
 
+// Add Identity services
+builder
+    .Services.AddIdentity<ApplicationUser, IdentityRole>()
+    .AddEntityFrameworkStores<upwordContext>()
+    .AddDefaultTokenProviders();
+
+// Add authorization services
+builder.Services.AddAuthorization();
+
 // Add CORS policy
 builder.Services.AddCors(options =>
 {
@@ -37,8 +49,15 @@ var app = builder.Build();
 // Use CORS policy
 app.UseCors("AllowFrontend");
 
+// Use authentication and authorization
+app.UseAuthentication();
+app.UseAuthorization();
+
 // Map your endpoints for words
 app.MapWordsEndpoints();
+
+// Map your authentication endpoints
+app.MapAuthEndpoints();
 
 // Ensure database is up-to-date
 await app.MigrateDbAsync();

@@ -1,9 +1,10 @@
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using upword.Api.Entities;
 
 namespace upword.Api.Data
 {
-    public class upwordContext : DbContext
+    public class upwordContext : IdentityDbContext<ApplicationUser>
     {
         public upwordContext(DbContextOptions<upwordContext> options)
             : base(options) { }
@@ -14,13 +15,17 @@ namespace upword.Api.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            // Ensure the 'Value' (word) column is unique
+            // Existing Word configuration
             modelBuilder.Entity<Word>().HasIndex(w => w.Value).IsUnique();
+            modelBuilder.Entity<Word>().Property(w => w.ExampleSentences).HasColumnType("TEXT");
 
-            // Specify that ExampleSentences is stored as JSON
-            modelBuilder.Entity<Word>().Property(w => w.ExampleSentences).HasColumnType("TEXT"); // Store as TEXT in SQLite
+            // ApplicationUser configuration
+            modelBuilder.Entity<ApplicationUser>().HasIndex(u => u.Email).IsUnique();
+            modelBuilder.Entity<ApplicationUser>().Property(u => u.Email).IsRequired();
+            modelBuilder.Entity<ApplicationUser>().Property(u => u.FirstName).HasMaxLength(50);
+            modelBuilder.Entity<ApplicationUser>().Property(u => u.LastName).HasMaxLength(50);
 
-            // Add a manual entry if the database is empty
+            // Existing Word seed data
             modelBuilder
                 .Entity<Word>()
                 .HasData(
@@ -33,7 +38,7 @@ namespace upword.Api.Data
                         PartOfSpeech = "Noun",
                         Pronunciation = "/ˌserənˈdipədi/",
                         ExampleSentences = new[] { "Example 1", "Example 2" },
-                        DateAdded = new DateOnly(2024, 7, 16) // Set to yesterday
+                        DateAdded = new DateOnly(2024, 7, 16)
                     }
                 );
         }
