@@ -9,6 +9,7 @@ namespace upword.Api.Endpoints;
 public static class WordsEndpoints
 {
     const string GetWordEndpointName = "GetWord";
+
     const string GetWordOfTheDayEndpointName = "GetWordOfTheDay";
 
     public static RouteGroupBuilder MapWordsEndpoints(this WebApplication app)
@@ -25,13 +26,16 @@ public static class WordsEndpoints
             }
         );
 
-        // Endpoint to get a word by id
+        // Endpoint to get a word by its value
         group
             .MapGet(
-                "/{id}",
-                async (string id, upwordContext dbContext) =>
+                "/{value}",
+                async (string value, upwordContext dbContext) =>
                 {
-                    var word = await dbContext.Words.FindAsync(id);
+                    var word = await dbContext
+                        .Words.Where(w => w.Value.ToLower() == value.ToLower())
+                        .FirstOrDefaultAsync();
+
                     if (word == null)
                         return Results.NotFound("Word not found.");
 
@@ -67,18 +71,21 @@ public static class WordsEndpoints
 
                 return Results.CreatedAtRoute(
                     GetWordEndpointName,
-                    new { id = word.Id },
+                    new { value = word.Value },
                     word.ToDto()
                 );
             }
         );
 
-        // Endpoint to update an existing word
+        // Endpoint to update an existing word by its value
         group.MapPut(
-            "/{id}",
-            async (string id, UpdateWordDto updatedWord, upwordContext dbContext) =>
+            "/{value}",
+            async (string value, UpdateWordDto updatedWord, upwordContext dbContext) =>
             {
-                var existingWord = await dbContext.Words.FindAsync(id);
+                var existingWord = await dbContext
+                    .Words.Where(w => w.Value.ToLower() == value.ToLower())
+                    .FirstOrDefaultAsync();
+
                 if (existingWord == null)
                 {
                     return Results.NotFound("Word not found.");
@@ -98,12 +105,15 @@ public static class WordsEndpoints
             }
         );
 
-        // Endpoint to delete an existing word
+        // Endpoint to delete an existing word by its value
         group.MapDelete(
-            "/{id}",
-            async (string id, upwordContext dbContext) =>
+            "/{value}",
+            async (string value, upwordContext dbContext) =>
             {
-                var word = await dbContext.Words.FindAsync(id);
+                var word = await dbContext
+                    .Words.Where(w => w.Value.ToLower() == value.ToLower())
+                    .FirstOrDefaultAsync();
+
                 if (word == null)
                 {
                     return Results.NotFound("Word not found.");
