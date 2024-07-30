@@ -23,10 +23,10 @@ public static class AuthEndpoints
                 {
                     var user = new ApplicationUser
                     {
-                        UserName = registerDto.Email,
                         Email = registerDto.Email,
                         FirstName = registerDto.FirstName,
-                        LastName = registerDto.LastName
+                        LastName = registerDto.LastName,
+                        DateOfBirth = registerDto.DateOfBirth // Set DateOfBirth
                     };
 
                     var result = await userManager.CreateAsync(user, registerDto.Password);
