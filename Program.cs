@@ -23,9 +23,13 @@ builder.Services.AddScoped<WordService>(provider => new WordService(
     provider.GetRequiredService<IServiceScopeFactory>()
 ));
 
-// Add Identity services
+// Add Identity services with custom options
 builder
-    .Services.AddIdentity<ApplicationUser, IdentityRole>()
+    .Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+    {
+        // Configure Identity options
+        options.User.RequireUniqueEmail = true;
+    })
     .AddEntityFrameworkStores<upwordContext>()
     .AddDefaultTokenProviders();
 

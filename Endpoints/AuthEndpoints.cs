@@ -23,10 +23,11 @@ public static class AuthEndpoints
                 {
                     var user = new ApplicationUser
                     {
+                        UserName = registerDto.Email, // Set UserName to be the same as Email
                         Email = registerDto.Email,
                         FirstName = registerDto.FirstName,
                         LastName = registerDto.LastName,
-                        DateOfBirth = registerDto.DateOfBirth // Set DateOfBirth
+                        DateOfBirth = registerDto.DateOfBirth
                     };
 
                     var result = await userManager.CreateAsync(user, registerDto.Password);
@@ -52,7 +53,7 @@ public static class AuthEndpoints
                 async (LoginDto loginDto, SignInManager<ApplicationUser> signInManager) =>
                 {
                     var result = await signInManager.PasswordSignInAsync(
-                        loginDto.Email,
+                        loginDto.Email, // Use Email for sign-in
                         loginDto.Password,
                         isPersistent: false,
                         lockoutOnFailure: false
