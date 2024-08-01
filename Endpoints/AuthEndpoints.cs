@@ -25,8 +25,6 @@ public static class AuthEndpoints
                     {
                         UserName = registerDto.Email, // Set UserName to be the same as Email
                         Email = registerDto.Email,
-                        FirstName = registerDto.FirstName,
-                        LastName = registerDto.LastName,
                         DateOfBirth = registerDto.DateOfBirth
                     };
 

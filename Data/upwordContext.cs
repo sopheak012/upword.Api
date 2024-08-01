@@ -10,6 +10,7 @@ namespace upword.Api.Data
             : base(options) { }
 
         public DbSet<Word> Words => Set<Word>();
+        public DbSet<UserWord> UserWords => Set<UserWord>(); // Add this line
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -22,8 +23,7 @@ namespace upword.Api.Data
             // ApplicationUser configuration
             modelBuilder.Entity<ApplicationUser>().HasIndex(u => u.Email).IsUnique();
             modelBuilder.Entity<ApplicationUser>().Property(u => u.Email).IsRequired();
-            modelBuilder.Entity<ApplicationUser>().Property(u => u.FirstName).HasMaxLength(50);
-            modelBuilder.Entity<ApplicationUser>().Property(u => u.LastName).HasMaxLength(50);
+            // Removed FirstName and LastName configurations
 
             // Existing Word seed data
             modelBuilder
@@ -37,7 +37,7 @@ namespace upword.Api.Data
                             "The occurrence and development of events by chance in a happy or beneficial way.",
                         PartOfSpeech = "Noun",
                         Pronunciation = "/ˌserənˈdipədi/",
-                        ExampleSentences = new[] { "Example 1", "Example 2" },
+                        ExampleSentences = new[] { "She found her old friend by sheer serendipity.", "Their serendipity led to a fruitful collaboration." },
                         DateAdded = new DateOnly(2024, 7, 16)
                     }
                 );

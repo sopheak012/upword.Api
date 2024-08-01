@@ -48,6 +48,7 @@ builder.Services.AddCors(options =>
     );
 });
 
+// Build the application
 var app = builder.Build();
 
 // Use CORS policy
@@ -59,6 +60,9 @@ app.UseAuthorization();
 
 // Map your endpoints for words
 app.MapWordsEndpoints();
+
+// Map your endpoints for user words
+app.MapUserWordsEndpoints(); // Add this line to include user words endpoints
 
 // Map your authentication endpoints
 app.MapAuthEndpoints();

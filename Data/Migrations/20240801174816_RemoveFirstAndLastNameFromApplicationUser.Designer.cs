@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using upword.Api.Data;
 
@@ -10,9 +11,11 @@ using upword.Api.Data;
 namespace upword.Api.Data.Migrations
 {
     [DbContext(typeof(upwordContext))]
-    partial class upwordContextModelSnapshot : ModelSnapshot
+    [Migration("20240801174816_RemoveFirstAndLastNameFromApplicationUser")]
+    partial class RemoveFirstAndLastNameFromApplicationUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.7");
@@ -216,28 +219,6 @@ namespace upword.Api.Data.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("upword.Api.Entities.UserWord", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("WordId")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.HasIndex("WordId");
-
-                    b.ToTable("UserWords");
-                });
-
             modelBuilder.Entity("upword.Api.Entities.Word", b =>
                 {
                     b.Property<string>("Id")
@@ -275,7 +256,7 @@ namespace upword.Api.Data.Migrations
                             Id = "1",
                             DateAdded = new DateOnly(2024, 7, 16),
                             Definition = "The occurrence and development of events by chance in a happy or beneficial way.",
-                            ExampleSentences = "[\"She found her old friend by sheer serendipity.\",\"Their serendipity led to a fruitful collaboration.\"]",
+                            ExampleSentences = "[\"Finding that old coin while cleaning the attic was a moment of serendipity.\",\"Her meeting with the famous author was pure serendipity during her vacation.\",\"The serendipity of the accidental discovery led to a major scientific breakthrough.\"]",
                             PartOfSpeech = "Noun",
                             Pronunciation = "/ˌserənˈdipədi/",
                             Value = "Serendipity"
@@ -331,25 +312,6 @@ namespace upword.Api.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("upword.Api.Entities.UserWord", b =>
-                {
-                    b.HasOne("upword.Api.Entities.ApplicationUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("upword.Api.Entities.Word", "Word")
-                        .WithMany()
-                        .HasForeignKey("WordId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-
-                    b.Navigation("Word");
                 });
 #pragma warning restore 612, 618
         }
