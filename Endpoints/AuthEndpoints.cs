@@ -48,7 +48,11 @@ public static class AuthEndpoints
         group
             .MapPost(
                 "/login",
-                async (LoginDto loginDto, SignInManager<ApplicationUser> signInManager) =>
+                async (
+                    LoginDto loginDto,
+                    SignInManager<ApplicationUser> signInManager,
+                    UserManager<ApplicationUser> userManager
+                ) =>
                 {
                     var result = await signInManager.PasswordSignInAsync(
                         loginDto.Email, // Use Email for sign-in
@@ -59,7 +63,15 @@ public static class AuthEndpoints
 
                     if (result.Succeeded)
                     {
-                        return Results.Ok(new { Message = "User logged in successfully" });
+                        var user = await userManager.FindByEmailAsync(loginDto.Email);
+
+                        return Results.Ok(
+                            new
+                            {
+                                Message = "User logged in successfully",
+                                Id = user?.Id // Include the user Id in the response
+                            }
+                        );
                     }
 
                     return Results.BadRequest("Invalid login attempt");

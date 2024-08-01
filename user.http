@@ -1,11 +1,9 @@
-POST http://localhost:5125/auth/register
+POST http://localhost:5125/auth/login
 Content-Type: application/json
 
 {
     "Email": "testuser1@example.com",
     "Password": "Password123!",
-    "ConfirmPassword": "Password123!",
-    "FirstName": "John",
-    "LastName": "Doe",
     "DateOfBirth": "2000-01-01" 
 }
+
