@@ -6,4 +6,14 @@ Content-Type: application/json
     "Password": "Password123!",
     "DateOfBirth": "2000-01-01" 
 }
+###
+POST http://localhost:5125/auth/register
+Content-Type: application/json
+
+{
+    "Email": "testuser2@example.com",
+    "Password": "Password123!",
+    "ConfirmPassword": "Password123!",
+    "DateOfBirth": "2000-01-01" 
+}
 

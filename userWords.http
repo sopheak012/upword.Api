@@ -2,10 +2,10 @@ POST http://localhost:5125/userwords
 Content-Type: application/json
 
 {
-    "UserId": "36e79f39-f2bd-4789-a619-41e20c8c20f4",
-    "WordId": "5"
+    "UserId": "67ed7be6-07f6-462a-95e5-d53108d7d5d3",
+    "WordId": "3"
 }
 
 
 ###
-GET http://localhost:5125/userwords/36e79f39-f2bd-4789-a619-41e20c8c20f4
+GET http://localhost:5125/userwords/67ed7be6-07f6-462a-95e5-d53108d7d5d3

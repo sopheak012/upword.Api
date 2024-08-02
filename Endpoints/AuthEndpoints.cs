@@ -32,10 +32,16 @@ public static class AuthEndpoints
 
                     if (result.Succeeded)
                     {
+                        // Return the user ID and a success message
                         return Results.CreatedAtRoute(
                             RegisterEndpointName,
                             new { email = user.Email },
-                            new { Email = user.Email, Message = "User registered successfully" }
+                            new
+                            {
+                                Email = user.Email,
+                                Id = user.Id, // Include the user ID
+                                Message = "User registered successfully"
+                            }
                         );
                     }
 

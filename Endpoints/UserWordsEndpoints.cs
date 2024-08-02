@@ -17,38 +17,33 @@ namespace upword.Api.Endpoints
         {
             var group = app.MapGroup("userwords").WithParameterValidation();
 
-            // Endpoint to retrieve all UserWords for a specific user
-            group
-                .MapGet(
-                    "/{userId}",
-                    async (string userId, upwordContext dbContext) =>
+            // Endpoint to retrieve all word values for a specific user
+            group.MapGet(
+                "/{userId}",
+                async (string userId, upwordContext dbContext) =>
+                {
+                    // Validate userId
+                    var userExists = await dbContext.Users.AnyAsync(u => u.Id == userId);
+                    if (!userExists)
                     {
-                        // Validate userId
-                        var userExists = await dbContext.Users.AnyAsync(u => u.Id == userId);
-                        if (!userExists)
-                        {
-                            return Results.NotFound("User not found.");
-                        }
-
-                        var userWords = await dbContext
-                            .UserWords.Where(uw => uw.UserId == userId)
-                            .Select(uw => new
-                            {
-                                uw.Id,
-                                uw.UserId,
-                                uw.WordId
-                            })
-                            .ToListAsync();
-
-                        if (userWords.Count == 0)
-                        {
-                            return Results.Ok(new { Message = "No words found for this user." });
-                        }
-
-                        return Results.Ok(userWords);
+                        return Results.NotFound("User not found.");
                     }
-                )
-                .WithName(GetUserWordsEndpointName);
+
+                    // Retrieve the list of word values associated with the user
+                    var userWordValues = await dbContext
+                        .UserWords.Where(uw => uw.UserId == userId)
+                        .Select(uw => uw.Word.Value) // Directly select the word value
+                        .ToListAsync();
+
+                    // Check if any words were found
+                    if (userWordValues.Count == 0)
+                    {
+                        return Results.Ok(new { Message = "No words found for this user." });
+                    }
+
+                    return Results.Ok(userWordValues);
+                }
+            );
 
             // Endpoint to create a new UserWord
             group
