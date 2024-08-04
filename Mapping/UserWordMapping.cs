@@ -6,13 +6,17 @@ namespace upword.Api.Mapping
 {
     public static class UserWordMapping
     {
-        public static UserWord ToEntity(this CreateUserWordDto userWordDto, string newId)
+        public static UserWord ToEntity(
+            this CreateUserWordDto userWordDto,
+            string newId,
+            string wordId
+        )
         {
             return new UserWord
             {
                 Id = newId,
                 UserId = userWordDto.UserId,
-                WordId = userWordDto.WordId
+                WordId = wordId
             };
         }
 
@@ -26,13 +30,17 @@ namespace upword.Api.Mapping
             };
         }
 
-        public static UserWord ToEntity(this UpdateUserWordDto userWordDto, string id)
+        public static UserWord ToEntity(
+            this UpdateUserWordDto userWordDto,
+            string id,
+            string wordId
+        )
         {
             return new UserWord
             {
                 Id = id,
                 UserId = userWordDto.UserId,
-                WordId = userWordDto.WordId
+                WordId = wordId // Use the resolved WordId based on WordValue
             };
         }
     }

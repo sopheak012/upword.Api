@@ -10,40 +10,40 @@ namespace upword.Api.Endpoints
     {
         const string GetUserWordsEndpointName = "GetUserWords";
         const string CreateUserWordEndpointName = "CreateUserWord";
-        const string UpdateUserWordEndpointName = "UpdateUserWord";
         const string DeleteUserWordEndpointName = "DeleteUserWord";
 
         public static RouteGroupBuilder MapUserWordsEndpoints(this WebApplication app)
         {
             var group = app.MapGroup("userwords").WithParameterValidation();
 
-            // Endpoint to retrieve all word values for a specific user
-            group.MapGet(
-                "/{userId}",
-                async (string userId, upwordContext dbContext) =>
-                {
-                    // Validate userId
-                    var userExists = await dbContext.Users.AnyAsync(u => u.Id == userId);
-                    if (!userExists)
+            // Endpoint to retrieve all words for a specific user
+            group
+                .MapGet(
+                    "/{userId}",
+                    async (string userId, upwordContext dbContext) =>
                     {
-                        return Results.NotFound("User not found.");
+                        // Validate userId
+                        var userExists = await dbContext.Users.AnyAsync(u => u.Id == userId);
+                        if (!userExists)
+                        {
+                            return Results.NotFound("User not found.");
+                        }
+
+                        // Retrieve the list of word values associated with the user
+                        var userWordValues = await dbContext
+                            .UserWords.Where(uw => uw.UserId == userId)
+                            .Join(
+                                dbContext.Words,
+                                uw => uw.WordId,
+                                w => w.Id,
+                                (uw, w) => w.Value // Select the word value from the Word entity
+                            )
+                            .ToListAsync();
+
+                        return Results.Ok(userWordValues);
                     }
-
-                    // Retrieve the list of word values associated with the user
-                    var userWordValues = await dbContext
-                        .UserWords.Where(uw => uw.UserId == userId)
-                        .Select(uw => uw.Word.Value) // Directly select the word value
-                        .ToListAsync();
-
-                    // Check if any words were found
-                    if (userWordValues.Count == 0)
-                    {
-                        return Results.Ok(new { Message = "No words found for this user." });
-                    }
-
-                    return Results.Ok(userWordValues);
-                }
-            );
+                )
+                .WithName(GetUserWordsEndpointName);
 
             // Endpoint to create a new UserWord
             group
@@ -51,12 +51,12 @@ namespace upword.Api.Endpoints
                     "/",
                     async (CreateUserWordDto newUserWord, upwordContext dbContext) =>
                     {
-                        // Validate userId and wordId
+                        // Validate userId and wordValue
                         var userExists = await dbContext.Users.AnyAsync(u =>
                             u.Id == newUserWord.UserId
                         );
                         var wordExists = await dbContext.Words.AnyAsync(w =>
-                            w.Id == newUserWord.WordId
+                            w.Value == newUserWord.WordValue
                         );
 
                         if (!userExists)
@@ -69,9 +69,14 @@ namespace upword.Api.Endpoints
                             return Results.NotFound("Word not found.");
                         }
 
+                        var wordId = await dbContext
+                            .Words.Where(w => w.Value == newUserWord.WordValue)
+                            .Select(w => w.Id)
+                            .FirstOrDefaultAsync();
+
                         // Check if the UserWord already exists for the user and word
                         bool exists = await dbContext.UserWords.AnyAsync(uw =>
-                            uw.UserId == newUserWord.UserId && uw.WordId == newUserWord.WordId
+                            uw.UserId == newUserWord.UserId && uw.WordId == wordId
                         );
 
                         if (exists)
@@ -79,89 +84,34 @@ namespace upword.Api.Endpoints
                             return Results.Conflict("UserWord already exists.");
                         }
 
-                        UserWord userWord = newUserWord.ToEntity(Guid.NewGuid().ToString());
+                        UserWord userWord = newUserWord.ToEntity(Guid.NewGuid().ToString(), wordId);
                         dbContext.UserWords.Add(userWord);
                         await dbContext.SaveChangesAsync();
 
-                        // Include the Word details in the response
-                        var createdUserWord = await dbContext
-                            .UserWords.Include(uw => uw.Word) // Include the related Word entity
-                            .FirstOrDefaultAsync(uw => uw.Id == userWord.Id);
-
-                        if (createdUserWord == null)
-                        {
-                            return Results.NotFound("UserWord not found.");
-                        }
-
                         return Results.CreatedAtRoute(
                             CreateUserWordEndpointName,
-                            new { id = createdUserWord.Id },
+                            new { id = userWord.Id },
                             new
                             {
-                                createdUserWord.Id,
-                                createdUserWord.UserId,
-                                createdUserWord.WordId,
-                                Word = createdUserWord.Word.ToDto() // Ensure you have a ToDto() method in your Word class
+                                userWord.Id,
+                                userWord.UserId,
+                                userWord.WordId,
+                                Word = (await dbContext.Words.FindAsync(wordId)).ToDto() // Ensure you have a ToDto() method in your Word class
                             }
                         );
                     }
                 )
                 .WithName(CreateUserWordEndpointName);
 
-            // Endpoint to update an existing UserWord
-            group
-                .MapPut(
-                    "/{userId}/{wordId}",
-                    async (
-                        string userId,
-                        string wordId,
-                        UpdateUserWordDto updatedUserWord,
-                        upwordContext dbContext
-                    ) =>
-                    {
-                        // Validate userId and wordId
-                        var userExists = await dbContext.Users.AnyAsync(u => u.Id == userId);
-                        var wordExists = await dbContext.Words.AnyAsync(w => w.Id == wordId);
-
-                        if (!userExists)
-                        {
-                            return Results.NotFound("User not found.");
-                        }
-
-                        if (!wordExists)
-                        {
-                            return Results.NotFound("Word not found.");
-                        }
-
-                        var existingUserWord = await dbContext
-                            .UserWords.Include(uw => uw.Word) // Include related Word entity if needed
-                            .FirstOrDefaultAsync(uw => uw.UserId == userId && uw.WordId == wordId);
-
-                        if (existingUserWord == null)
-                        {
-                            return Results.NotFound("UserWord not found.");
-                        }
-
-                        // Update properties if necessary
-                        existingUserWord.UserId = updatedUserWord.UserId;
-                        existingUserWord.WordId = updatedUserWord.WordId;
-
-                        await dbContext.SaveChangesAsync();
-
-                        return Results.Ok(existingUserWord.ToDto());
-                    }
-                )
-                .WithName(UpdateUserWordEndpointName);
-
             // Endpoint to delete an existing UserWord
             group
                 .MapDelete(
-                    "/{userId}/{wordId}",
-                    async (string userId, string wordId, upwordContext dbContext) =>
+                    "/{userId}/{wordValue}",
+                    async (string userId, string wordValue, upwordContext dbContext) =>
                     {
-                        // Validate userId and wordId
+                        // Validate userId and wordValue
                         var userExists = await dbContext.Users.AnyAsync(u => u.Id == userId);
-                        var wordExists = await dbContext.Words.AnyAsync(w => w.Id == wordId);
+                        var wordExists = await dbContext.Words.AnyAsync(w => w.Value == wordValue);
 
                         if (!userExists)
                         {
@@ -173,21 +123,18 @@ namespace upword.Api.Endpoints
                             return Results.NotFound("Word not found.");
                         }
 
-                        // Log or output the parameters for debugging
-                        Console.WriteLine(
-                            $"Attempting to delete UserWord with Word ID: {wordId} for User ID: {userId}"
-                        );
+                        var wordId = await dbContext
+                            .Words.Where(w => w.Value == wordValue)
+                            .Select(w => w.Id)
+                            .FirstOrDefaultAsync();
 
-                        // Retrieve the UserWord to be deleted
-                        var userWord = await dbContext
-                            .UserWords.Include(uw => uw.Word) // Include related Word entity if needed
-                            .FirstOrDefaultAsync(uw => uw.UserId == userId && uw.WordId == wordId);
+                        var userWord = await dbContext.UserWords.FirstOrDefaultAsync(uw =>
+                            uw.UserId == userId && uw.WordId == wordId
+                        );
 
                         if (userWord == null)
                         {
-                            return Results.NotFound(
-                                "UserWord not found or does not belong to this user."
-                            );
+                            return Results.NotFound("UserWord not found.");
                         }
 
                         dbContext.UserWords.Remove(userWord);

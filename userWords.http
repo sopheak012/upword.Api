@@ -3,9 +3,11 @@ Content-Type: application/json
 
 {
     "UserId": "67ed7be6-07f6-462a-95e5-d53108d7d5d3",
-    "WordId": "3"
+    "WordValue": "Serendipity"
 }
+
 
 
 ###
 GET http://localhost:5125/userwords/67ed7be6-07f6-462a-95e5-d53108d7d5d3
+
