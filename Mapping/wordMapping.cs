@@ -1,4 +1,3 @@
-using System;
 using upword.Api.Dtos;
 using upword.Api.Entities;
 
@@ -11,16 +10,16 @@ namespace upword.Api.Mapping
             return new Word
             {
                 Id = newId,
-                Value = wordDto.Value, // Changed from 'word' to 'Value'
+                Value = wordDto.Value,
                 Definition = wordDto.Definition,
                 PartOfSpeech = wordDto.PartOfSpeech,
                 Pronunciation = wordDto.Pronunciation,
-                ExampleSentences = wordDto.ExampleSentences, // Change to array of strings
+                ExampleSentences = wordDto.ExampleSentences,
                 DateAdded = GetPacificStandardTimeDate()
             };
         }
 
-        public static WordDto ToDto(this Word word) // Change to ToDto
+        public static WordDto ToDto(this Word word)
         {
             return new WordDto(
                 word.Id,

@@ -9,7 +9,6 @@ namespace upword.Api.Endpoints;
 public static class WordsEndpoints
 {
     const string GetWordEndpointName = "GetWord";
-
     const string GetWordOfTheDayEndpointName = "GetWordOfTheDay";
 
     public static RouteGroupBuilder MapWordsEndpoints(this WebApplication app)
@@ -132,7 +131,7 @@ public static class WordsEndpoints
                 "/wordoftheday",
                 async (upwordContext dbContext) =>
                 {
-                    var today = DateOnly.FromDateTime(DateTime.UtcNow.Date); // Use Date to ignore time part
+                    var today = GetPacificStandardTimeDate();
 
                     var wordOfTheDay = await dbContext
                         .Words.Where(w => w.DateAdded == today)
@@ -143,7 +142,6 @@ public static class WordsEndpoints
                         return Results.NotFound("No word found for today.");
                     }
 
-                    // Convert the retrieved Word entity to DTO before returning
                     var wordDto = wordOfTheDay.ToDto();
                     return Results.Ok(wordDto);
                 }
@@ -151,5 +149,17 @@ public static class WordsEndpoints
             .WithName(GetWordOfTheDayEndpointName);
 
         return group;
+    }
+
+    private static DateOnly GetPacificStandardTimeDate()
+    {
+        // Define Pacific Standard Time (PST) timezone
+        TimeZoneInfo pacificZone = TimeZoneInfo.FindSystemTimeZoneById("Pacific Standard Time");
+
+        // Convert current UTC time to PST
+        DateTime pacificTime = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, pacificZone);
+
+        // Return only the date part
+        return DateOnly.FromDateTime(pacificTime);
     }
 }
