@@ -36,14 +36,20 @@ builder
 // Add authorization services
 builder.Services.AddAuthorization();
 
-// Add CORS policy
+// Add CORS policy for both development and production
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(
         "AllowFrontend",
         builder =>
         {
-            builder.WithOrigins("http://localhost:5174").AllowAnyHeader().AllowAnyMethod();
+            builder
+                .WithOrigins(
+                    "http://localhost:5174", // Development
+                    "https://upword-rlb3.onrender.com" // Production
+                )
+                .AllowAnyHeader()
+                .AllowAnyMethod();
         }
     );
 });
@@ -62,7 +68,7 @@ app.UseAuthorization();
 app.MapWordsEndpoints();
 
 // Map your endpoints for user words
-app.MapUserWordsEndpoints(); // Add this line to include user words endpoints
+app.MapUserWordsEndpoints();
 
 // Map your authentication endpoints
 app.MapAuthEndpoints();
