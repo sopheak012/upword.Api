@@ -1,28 +1,18 @@
-# Use the official .NET SDK image for building the app
-FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build-env
+# Use the official SDK image for build
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
 
-# Copy csproj and restore as distinct layers
-COPY *.csproj ./
+# Copy the .csproj file and restore dependencies
+COPY upword.Api.csproj ./
 RUN dotnet restore
 
-# Copy everything else and build the app
+# Copy the rest of the files and build the app
 COPY . ./
-RUN dotnet publish -c Release -o out
+RUN dotnet build -c Release -o /app/build
+RUN dotnet publish -c Release -o /app/publish
 
-# Use the official .NET runtime image for running the app
-FROM mcr.microsoft.com/dotnet/aspnet:7.0
+# Use the runtime image for final stage
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
 WORKDIR /app
-
-# Copy the build output to the runtime image
-COPY --from=build-env /app/out .
-
-# Set environment variables for production
-ENV ASPNETCORE_URLS=http://+:8080
-ENV ASPNETCORE_ENVIRONMENT=Production
-
-# Expose the port that the app runs on
-EXPOSE 8080
-
-# Run the app
+COPY --from=build /app/publish .
 ENTRYPOINT ["dotnet", "upword.Api.dll"]
